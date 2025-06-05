@@ -1,19 +1,35 @@
-const arr = [1, 2, 3, 4];
+const arr = [1, 2, 3, 4, 5.6, 8, 9];
 
 // a function which returns a array by doing square of each number.
 
-const result = myMap(arr, transformArray);
-console.log(result);
-
-function transformArray(elem, index, dataArray) {
-  return elem * elem;
-}
-
-function myMap(dataArray, callbackFn) {
-  let finalArray = [];
-  for (let i = 0; i < dataArray.length; i++) {
-    const value = dataArray[i];
-    const newValue = callbackFn(value, i, dataArray);
-    finalArray.push(newValue);
+Array.prototype.myMap = function (callbackFn) {
+  console.log("this", this);
+  if (typeof callbackFn !== "function") {
+    throw new TypeError(callbackFn + " is not a function");
   }
+  const result = new Array(this.length);
+  let flag = 0;
+  while (flag < this.length) {
+    if (this.hasOwnProperty(flag)) {
+      const value = this[flag];
+      const newValue = callbackFn(value, flag, this);
+      result[flag] = newValue;
+    }
+    flag++;
+  }
+  return result;
+};
+
+function getSquareOfNumber(num) {
+  return num * num;
 }
+
+const result = arr.myMap(getSquareOfNumber);
+
+const sample1 = [1, 2, 3, 4, 5];
+const sample2 = new Array(10);
+
+const result1 = sample1.myMap((d) => d * 2);
+const result2 = sample2.myMap((d) => d * 2);
+
+console.log({ result1, result2 });
