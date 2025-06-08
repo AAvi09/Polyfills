@@ -32,5 +32,8 @@ const sample2 = new Array(10);
 const result1 = sample1.myMap((d) => d * 2);
 const result2 = sample2.myMap((d) => d * 2);
 const result3 = sample2.myMap((d, i) => i + 1);
+const result4 = sample2.myMap((d, i, arr) => {
+  console.log("arr", arr);
+});
 
-console.log({ result1, result2, result3 });
+console.log({ result1, result2, result3, result4 });
