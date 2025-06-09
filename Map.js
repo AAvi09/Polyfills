@@ -35,5 +35,7 @@ const result3 = sample2.myMap((d, i) => i + 1);
 const result4 = sample2.myMap((d, i, arr) => {
   console.log("arr", arr);
 });
-
-console.log({ result1, result2, result3, result4 });
+const result5 = sample1.myMap((d, i, arr) => {
+  d * 6;
+});
+console.log({ result1, result2, result3, result4, result5 });
