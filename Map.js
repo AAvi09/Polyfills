@@ -38,4 +38,8 @@ const result4 = sample2.myMap((d, i, arr) => {
 const result5 = sample1.myMap((d, i, arr) => {
   d * 6;
 });
-console.log({ result1, result2, result3, result4, result5 });
+const result6 = sample1.myMap((d, i, arr) => {
+  console.log("arr", arr);
+  return d * 9;
+});
+console.log({ result1, result2, result3, result4, result5, result6s });
