@@ -29,6 +29,7 @@ const result = arr.myMap(getSquareOfNumber);
 const sample1 = [1, 2, 3, 4, 5];
 const sample2 = new Array(10);
 const sample3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const samople4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const result1 = sample1.myMap((d) => d * 2);
 const result2 = sample2.myMap((d) => d * 2);
@@ -51,6 +52,10 @@ const result8 = sample3.myMap((d, i, arr) => {
   console.log("arr", arr);
   return d * 10;
 });
+const result9 = samople4.myMap((d, i, arr) => {
+  console.log("arr", arr);
+  return d * 10;
+});
 console.log({
   result1,
   result2,
@@ -60,4 +65,5 @@ console.log({
   result6,
   result7,
   result8,
+  result9,
 });
