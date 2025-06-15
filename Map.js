@@ -54,7 +54,7 @@ const result8 = sample3.myMap((d, i, arr) => {
 });
 const result9 = samople4.myMap((d, i, arr) => {
   console.log("arr", arr);
-  return d * 10;
+  return d / 10;
 });
 console.log({
   result1,
