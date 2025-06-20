@@ -16,4 +16,4 @@ function sum(n) {
   return n + sum(n - 1);
 }
 
-sum(20);
+sum(30);
