@@ -24,4 +24,4 @@ function factorial(n) {
   }
   return n * factorial(n - 1);
 }
-factorial(60);
+factorial(70);
