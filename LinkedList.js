@@ -83,3 +83,23 @@ function LinkedListCycle(head) {
   }
   return false;
 }
+function AddTwoNumbers(l1, l2) {
+  let dummy = new Node(0);
+  let curr = dummy;
+  let carry = 0;
+  while (l1 || l2 || carry) {
+    sum = carry;
+    if (l1) {
+      sum += l1.value;
+      l1 = l1.next;
+    }
+    if (l2) {
+      sum += l2.value;
+      l2 = l2.next;
+    }
+    carry = Math.floor(sum / 10);
+    curr.next = new Node(sum % 10);
+    curr = curr.next;
+  }
+  return dummy.next;
+}
