@@ -117,3 +117,31 @@ function oddEven(head) {
   odd.next = evenHead;
   return head;
 }
+
+function pallindromeLinkedList(head) {
+  if (!head || !head.next) return true;
+  let slow = head;
+  let fast = head;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  let prev = null;
+  let curr = slow;
+  while (curr) {
+    let temp = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = temp;
+  }
+  let left = head;
+  let right = prev;
+  while (right) {
+    if (left.val != right.val) {
+      return false;
+    }
+    left = left.next;
+    right = right.next;
+  }
+  return true;
+}
