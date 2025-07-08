@@ -10,3 +10,16 @@ function lengthOfLastWord(s) {
   }
   return count;
 }
+
+function FindWordsContainingCharacter(words, x) {
+  let indexes = [];
+  for (let i = 0; i <= words.length - 1; i++) {
+    for (let j = 0; j <= words[i].length - 1; j++) {
+      if (words[i][j] === x) {
+        indexes.push(i);
+        break;
+      }
+    }
+  }
+  return indexes;
+}
