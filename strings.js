@@ -13,6 +13,10 @@ function lengthOfLastWord(s) {
 
 function FindWordsContainingCharacter(words, x) {
   let indexes = [];
+  if (!Array.isArray(words) || typeof x !== "string" || x.length === 0) {
+    // invalid input ya empty x → no matches
+    return indexes;
+  }
   for (let i = 0; i <= words.length - 1; i++) {
     for (let j = 0; j <= words[i].length - 1; j++) {
       if (words[i][j] === x) {
