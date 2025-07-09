@@ -48,3 +48,27 @@ function splitAStringInBalancedStrings(s) {
   }
   return countS;
 }
+
+function reverseStringII(s, k) {
+  let temp = 0;
+  let rr = 2 * k;
+  for (let i = 0; i < s.length; i += rr) {
+    if (rr < s.length) {
+      temp = s[i];
+    }
+  }
+}
+
+var reverseStr = function (s, k) {
+  let s = s.split("");
+  for (let x = 0; x < s.length; x = x + 2 * k) {
+    let n = k;
+    let mid = Math.floor(n / 2);
+    for (let i = 0; i < mid; i++) {
+      let temp = s[x + i];
+      s[x + i] = s[x + n - 1 - i];
+      s[x + n - 1 - i] = temp;
+    }
+  }
+  return s.join("");
+};
