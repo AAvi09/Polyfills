@@ -27,3 +27,24 @@ function FindWordsContainingCharacter(words, x) {
   }
   return indexes;
 }
+
+function splitAStringInBalancedStrings(s) {
+  let countS = 0;
+  let countR = 0;
+  let countL = 0;
+  let n = 0;
+  while (s.length > n) {
+    if (s[n] === "R") {
+      countR++;
+    } else if (s[n] === "L") {
+      countL++;
+    }
+    if (countR === countL) {
+      countS++;
+      countR = 0;
+      countL = 0;
+    }
+    n++;
+  }
+  return countS;
+}
