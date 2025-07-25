@@ -105,6 +105,8 @@ function AddTwoNumbers(l1, l2) {
 }
 
 function oddEven(head) {
+  if (!head || !head.next) return head;
+  if (!head.next.next) return head;
   let odd = head;
   let even = head.next;
   let evenHead = even;
