@@ -49,3 +49,34 @@ MinStack.prototype.getMin = function () {
  * var param_3 = obj.top()
  * var param_4 = obj.getMin()
  */
+
+var evalRPN = function (tokens) {
+  let stack = [];
+
+  for (token of tokens) {
+    if (token === "+" || token === "-" || token === "*" || token === "/") {
+      let num1 = stack.pop();
+      let num2 = stack.pop();
+      let res;
+
+      switch (token) {
+        case "+":
+          res = num2 + num1;
+          break;
+        case "-":
+          res = num2 - num1;
+          break;
+        case "*":
+          res = num2 * num1;
+          break;
+        case "/":
+          res = Math.trunc(num2 / num1);
+          break;
+      }
+      stack.push(res);
+    } else {
+      stack.push(Number(token));
+    }
+  }
+  return stack.pop();
+};
