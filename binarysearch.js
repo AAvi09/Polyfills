@@ -140,3 +140,18 @@ var guessNumber = function (n) {
   }
   return -1;
 };
+
+var findPeakElement = function (nums) {
+  let l = 0;
+  let r = nums.length - 1;
+
+  while (l < r) {
+    let m = Math.floor(l + (r - l) / 2);
+    if (nums[m] > nums[m + 1]) {
+      r = m;
+    } else {
+      l = m + 1;
+    }
+  }
+  return l;
+};
