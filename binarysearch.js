@@ -74,3 +74,20 @@ var solution = function (isBadVersion) {
     return r;
   };
 };
+
+var isPerfectSquare = function (num) {
+  if (num < 2) return num;
+  let l = 2;
+  let r = Math.floor(num / 2);
+  while (l <= r) {
+    let m = Math.floor(l + (r - l) / 2);
+    if (num === m * m) {
+      return m;
+    } else if (num < m * m) {
+      r = m - 1;
+    } else {
+      l = m + 1;
+    }
+  }
+  return num === r * r;
+};
