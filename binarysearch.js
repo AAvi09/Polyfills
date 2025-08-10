@@ -186,3 +186,17 @@ var searchRange = function (nums, target) {
   }
   return ans;
 };
+
+var nextGreatestLetter = function (letters, target) {
+  let l = 0;
+  let r = letters.length - 1;
+  while (l < r) {
+    let m = Math.floor(l + (r - l) / 2);
+    if (letters[m] > target) {
+      r = m;
+    } else {
+      l = m + 1;
+    }
+  }
+  return target < letters[l] ? letters[l] : letters[0];
+};
