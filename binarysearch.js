@@ -155,3 +155,34 @@ var findPeakElement = function (nums) {
   }
   return l;
 };
+
+var searchRange = function (nums, target) {
+  let l = 0;
+  let r = nums.length - 1;
+  let ans = [-1, -1];
+  while (l < r) {
+    let m = Math.floor(l + (r - l) / 2);
+    if (nums[m] < target) {
+      l = m + 1;
+    } else {
+      r = m;
+    }
+  }
+  if (nums[l] === target) {
+    ans[0] = l;
+  }
+  l = 0;
+  r = nums.length - 1;
+  while (l < r) {
+    let m = Math.ceil(l + (r - l) / 2);
+    if (nums[m] > target) {
+      r = m - 1;
+    } else {
+      l = m;
+    }
+  }
+  if (nums[r] === target) {
+    ans[1] = r;
+  }
+  return ans;
+};
