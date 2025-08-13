@@ -261,3 +261,21 @@ var minSubArrayLen = function (target, nums) {
   }
   return minLen === Infinity ? 0 : minLen;
 };
+
+var minEatingSpeed = function (piles, h) {
+  let l = 1;
+  let r = Math.max(...piles);
+  while (l < r) {
+    let mid = Math.floor(l + (r - l) / 2);
+    let hours = 0;
+    for (let pile of piles) {
+      hours += Math.ceil(pile / mid);
+    }
+    if (hours <= h) {
+      r = mid;
+    } else {
+      l = mid + 1;
+    }
+  }
+  return l;
+};
