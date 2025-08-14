@@ -43,3 +43,17 @@ var twoSum = function (numbers, target) {
     }
   }
 };
+
+//is subsequence using two pointers and space complexity of O(1)
+var isSubsequence2 = function (s, t) {
+  let l = 0;
+  let r = 0;
+
+  while (l < s.length && r < t.length) {
+    if (s[l] === t[r]) {
+      l++;
+    }
+    r++;
+  }
+  return l === s.length;
+};
