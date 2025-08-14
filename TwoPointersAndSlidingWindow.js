@@ -11,3 +11,19 @@ var twoSum = function (nums, target) {
 
   return [-1, -1];
 };
+
+var isSubsequence = function (s, t) {
+  let l = 0;
+  let r = 0;
+  let a = "";
+  while (r < t.length) {
+    if (s[l] === t[r]) {
+      a += t[r];
+      l++;
+      r++;
+    } else {
+      r++;
+    }
+  }
+  return s === a;
+};
