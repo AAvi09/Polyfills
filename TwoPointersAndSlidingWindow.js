@@ -175,3 +175,25 @@ var twoSum = function (arr, x, ans) {
     }
   }
 };
+
+//trapping rainwater
+var trap = function (arr) {
+  let maxL = [];
+  maxL[0] = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    maxL[i] = Math.max(maxL[i - 1], arr[i]);
+  }
+  let maxR = [];
+  maxR[arr.length - 1] = arr[arr.length - 1];
+  for (let i = arr.length - 2; i >= 0; i--) {
+    maxR[i] = Math.max(arr[i], maxR[i + 1]);
+  }
+
+  let ans = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let waterTrapped = Math.min(maxL[i], maxR[i]) - arr[i];
+    ans = ans + (waterTrapped < 0 ? 0 : waterTrapped);
+  }
+
+  return ans;
+};
